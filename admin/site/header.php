@@ -1,29 +1,30 @@
-<?php 
-include"site/title.php";
-echo header_title (); ?>
-    
+<head>
+        <meta charset='utf-8' />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+        <meta name='description' content='' />
+        <meta name='author' content='' />
+        <title>Dashboard - Image Gallery</title>
+        <link href='site/css/styles.css' rel='stylesheet' />
+        <link href='site/css/dataTables.bootstrap4.min.css' rel='stylesheet' crossorigin='anonymous' />
+        <script src='site/js/all.min.js' crossorigin='anonymous'></script>
+    </head> 
 
-    
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
-            ><!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    
-                
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
-                        <a class="dropdown-item" href="login.php">Login</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login.html">Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="gallery.php">ADMIN PANEL</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="upload.php">Single Upload</a>
+      <a class="nav-item nav-link disabled" href="login.php">Welcome <?php if(!$_SESSION['username']){echo 'Guest';} else{echo $_SESSION['username'];}?>!</a>
+      <a class="nav-item nav-link" href="logout.php">Logout</a>
+    </div>
+  </div>
+</nav>
+
+</div>

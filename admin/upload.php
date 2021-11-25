@@ -1,9 +1,18 @@
 <?php 
-include"site/header.php";
+  include"../database/db.php";
+  session_start();
+  $query = "SELECT * FROM admin";
+  $stmt = $con->prepare($query);
+  $stmt->execute();
+  $row = $stmt->fetch();
+  $usr = $row['username'];
+  if ($_SESSION['username'] == $usr){
+  include"site/header.php";?>
+
+
+
+<?php 
 include"sidebar.php";
-
-include"../database/db.php";
-
 $message ="";
 
 //insert pdf   
@@ -91,8 +100,17 @@ $message = "<div class='alert alert-success' role='alert'><button type='button' 
 	    <form class="col-md-4">
 	        <label>Select Gallery Name</label>
 	        <select class="form-control select2">
-	           <option>Select</option> 
-	           <option>Car</option> 
+		 <option>Select</option> 
+
+		   <?php 
+		      $check ="SELECT * FROM gallery";
+              $stmt = $con->prepare($check); 
+              $stmt->execute();    
+              while ($table = $stmt->fetch()) { echo'<option>'.$table['gallery_username'].'</option>';};?>
+					
+			   
+	           
+	         
 
 	        </select>
 	    </form>
@@ -122,3 +140,5 @@ $message = "<div class='alert alert-success' role='alert'><button type='button' 
                         
                         
 <?php include"site/footer.php";?>
+
+<?php } else {echo"Please <a href='login.php'>login</a> first..";} ;?>

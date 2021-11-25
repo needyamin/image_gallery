@@ -1,10 +1,20 @@
-<?php 
-include"site/header.php";
+<?php
+  include"../database/db.php";
+  session_start();
+  $query = "SELECT * FROM admin";
+  $stmt = $con->prepare($query);
+  $stmt->execute();
+  $row = $stmt->fetch();
+  $usr = $row['username'];
+  if ($_SESSION['username'] == $usr){
+  include"site/header.php";?>
+  
+  
+<?php
+
 include"sidebar.php";
 
-include"../database/db.php";
-
-echo $get_upload = $_GET['username'];
+$get_upload = $_GET['username'];
 $message ="";
 
 //insert pdf   
@@ -91,3 +101,6 @@ $message = "<div class='alert alert-success' role='alert'><button type='button' 
                         
                         
 <?php include"site/footer.php";?>
+
+<?php } else {echo"Please <a href='login.php'>login</a> first..";} ;?>
+

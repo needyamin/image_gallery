@@ -1,6 +1,6 @@
 <?php 
 $host = 'localhost';
-$dbname = 'image_gallery';
+$dbname = 'sonjib';
 $username = 'needyamin';
 $password = 'Yamin143';
 
